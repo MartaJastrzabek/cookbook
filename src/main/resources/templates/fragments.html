@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookbook fragments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+
+<div class="header" th:fragment="header">
+    <a href="/">
+        <img src="/cookbook_logo.png" alt="Książka kucharska - logo">
+    </a>
+</div>
+
+<div class="nav" th:fragment="menu">
+    <div class="nav-item">
+        <a href="/add">Dodaj przepis</a>
+    </div>
+    <div class="nav-item">
+        <a href="/">Wszystkie przepisy</a>
+    </div>
+    <div class="nav-item">
+        <a href="/categories">Wybierz kategorie</a>
+    </div>
+    <div class="nav-item">
+        <a href="/?show=best">Najlepsze przepisy</a>
+    </div>
+</div>
+
+</body>
+</html>

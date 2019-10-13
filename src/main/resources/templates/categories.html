@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookbook fragments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+<div th:replace="fragments::menu"></div>
+<div class="content">
+    <div class="categories-list">
+        <div class="category" th:each="category : ${categories}">
+            <img class="category-img" th:src="${category.img}" alt="Obraz kategorii">
+            <div class="category-text">
+                <h3 th:text="${category.name.getName()}">Nazwa kategorii</h3>
+                <p th:text="${category.description}">Opis kategorii</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookbook fragments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+<div th:replace="fragments::menu"></div>
+<div class="content">
+    <div class="recipe-name">
+        <h2 th:text="${recipe.name}"></h2>
+        <br/>
+    </div>
+    <div class="category">
+        <h4 th:text="|Kategoria: ${recipe.category.name.getName()}|">Nazwa kategorii</h4>
+        <p th:text="|Liczba polubień: ${recipe.likesNumber}|">Liczba polubień</p>
+    </div>
+    <div class="recipe-ingredients">
+        <table>
+            <tr th:each="ingredient : ${recipe.ingredients}">
+                <td th:text="${ingredient.quantity}">ilość</td>
+                <td th:text="${ingredient.unit}">jednostka</td>
+                <td th:text="${ingredient.name}">nazwa</td>
+            </tr>
+        </table>
+    </div>
+    <div class="preparation">
+        <br/>
+        <p th:text="${recipe.preparation}"></p>
+    </div>
+    <div class="edit">
+        <a th:href="@{'/edit/' + ${recipe.id}}">Edytuj przepis</a>
+    </div>
+    <div class="delete">
+        <a th:href="@{'/delete/' + ${recipe.id}}">Usuń przepis</a>
+    </div>
+</div>
+</body>
+</html>
