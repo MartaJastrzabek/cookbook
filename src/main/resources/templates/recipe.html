@@ -17,8 +17,10 @@
     </div>
     <div class="recipe_category">
         <h4 th:text="|Kategoria: ${recipe.category.name.getName()}|">Nazwa kategorii</h4>
-        <p th:text="|Liczba polubień: ${recipe.likesNumber}|">Liczba polubień</p>
+        <h5 th:text="|Liczba polubień: ${recipe.likesNumber}|">Liczba polubień</h5>
+        <a th:href="@{'/like/' + ${recipe.id}}">Polub przepis</a>
     </div>
+    <br/>
     <div class="recipe-ingredients">
         <table>
             <tr th:each="ingredient : ${recipe.ingredients}">

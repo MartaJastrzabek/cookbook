@@ -1,5 +1,6 @@
 package pl.martajastrzabek.cookbook.service;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.martajastrzabek.cookbook.entity.*;
 import pl.martajastrzabek.cookbook.model.RecipeForm;
@@ -28,6 +29,10 @@ public class CookbookService {
 
     public List<Recipe> findAllRecipe() {
         return recipeRepository.findAll();
+    }
+
+    public List<Recipe> findAllRecipeSortedByLikeNumbers() {
+        return recipeRepository.findAll(Sort.by(Sort.Direction.DESC,"likesNumber"));
     }
 
     public List<Category> findAllCategories() {
@@ -109,4 +114,14 @@ public class CookbookService {
         ingredientRepository.deleteAllByRecipeId(id);
         recipeRepository.deleteById(id);
     }
+
+    public void increaseRecipeLikeNumber(Long id) {
+        Optional<Recipe> optionalRecipe = recipeRepository.findById(id);
+        if (optionalRecipe.isPresent()){
+            Recipe recipe = optionalRecipe.get();
+            recipe.setLikesNumber(recipe.getLikesNumber() + 1);
+            recipeRepository.save(recipe);
+        }
+    }
+
 }

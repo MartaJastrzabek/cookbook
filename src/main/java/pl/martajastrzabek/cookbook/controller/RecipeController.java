@@ -42,13 +42,7 @@ public class RecipeController {
 
     @GetMapping("/recipe/{id}")
     public String showRecipe(@PathVariable Long id, Model model) {
-        Optional<Recipe> recipeOptional = service.findRecipeById(id);
-        if (recipeOptional.isPresent()) {
-            Recipe recipe = recipeOptional.get();
-            model.addAttribute("recipe", recipe);
-            return "recipe";
-        }
-        return "error";
+        return getRecipe(id, model);
     }
 
     @GetMapping("/update/{id}")
@@ -76,11 +70,27 @@ public class RecipeController {
     }
 
     @GetMapping("/delete/{id}")
-    String deleteRecipe(@PathVariable Long id) {
+    public String deleteRecipe(@PathVariable Long id) {
         Optional<Recipe> opRecipe = service.findRecipeById(id);
         if (opRecipe.isPresent()) {
             service.deleteRecipe(id);
             return "redirect:/";
+        }
+        return "error";
+    }
+
+    @GetMapping("/like/{id}")
+    public String updateRecipeLikeNumber(@PathVariable Long id, Model model) {
+        service.increaseRecipeLikeNumber(id);
+        return getRecipe(id, model);
+    }
+
+    private String getRecipe(@PathVariable Long id, Model model) {
+        Optional<Recipe> optionalRecipe = service.findRecipeById(id);
+        if (optionalRecipe.isPresent()) {
+            Recipe recipe = optionalRecipe.get();
+            model.addAttribute("recipe", recipe);
+            return "recipe";
         }
         return "error";
     }

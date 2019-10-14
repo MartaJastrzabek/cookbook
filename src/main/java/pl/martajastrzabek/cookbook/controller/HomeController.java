@@ -21,7 +21,12 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(@RequestParam(required = false) String show, Model model){
-        List<Recipe> allRecipes = service.findAllRecipe();
+        List<Recipe> allRecipes;
+        if(show!=null && "best".equals(show)){
+            allRecipes = service.findAllRecipeSortedByLikeNumbers();
+        } else {
+            allRecipes = service.findAllRecipe();
+        }
         model.addAttribute("recipes", allRecipes);
         return "home";
     }
