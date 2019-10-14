@@ -1,9 +1,9 @@
-INSERT INTO category (name, description, img) VALUES ('MEATS', 'Przepisy na dania mięsne. Idealne na obiad.', 'meat.jpg'),
-                                                      ('PASTAS', 'Przepisy na dania z makaronu. Idealne na szybki obiad.', 'pasta.jpg'),
-                                                      ('SALADS', 'Przepisy na sałatki. Idealne na lekki obiad, przystawkę czy przyjęcie.', 'salad.jpg'),
-                                                      ('MEAT_FREE', 'Przepisy na dania bez mięsne. Idealne na zdrowy obiad.', 'meat_free.jpg'),
-                                                      ('DESSERTS', 'Przepisy na dania mięsne. Idealne na obiad.', 'dessert.jpg'),
-                                                      ('SOUPS', 'Przepisy na zupy. Idealne na przystawkę, lekki obiad i kolacje.', 'soup.jpg');
+INSERT INTO category (name, description, img) VALUES ('MEATS', 'Przepisy na dania mięsne. Idealne na obiad.', '/meat.jpg'),
+                                                      ('PASTAS', 'Przepisy na dania z makaronu. Idealne na szybki obiad.', '/pasta.jpg'),
+                                                      ('SALADS', 'Przepisy na sałatki. Idealne na lekki obiad, przystawkę czy przyjęcie.', '/salad.jpg'),
+                                                      ('MEAT_FREE', 'Przepisy na dania bez mięsne. Idealne na zdrowy obiad.', '/meat_free.jpg'),
+                                                      ('DESSERTS', 'Przepisy na dania mięsne. Idealne na obiad.', '/dessert.jpg'),
+                                                      ('SOUPS', 'Przepisy na zupy. Idealne na przystawkę, lekki obiad i kolacje.', '/soup.jpg');
 
 INSERT INTO recipe (id, name, category_id, preparation) VALUES (1, 'Spaghetti bolognese', 2, 'Cebulę i czosnek obrać i poszatkować.
 Marchewkę umyć, obrać i pokroić w drobną kostkę.Cebulę i czosnek chwilkę podsmażyć na oleju.

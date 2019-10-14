@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
-<div th:replace="fragments :: header"></div>
+<div th:replace="fragments::header"></div>
 <div th:replace="fragments::menu"></div>
 <div class="content">
     <div class="recipe-name">
         <h2 th:text="${recipe.name}"></h2>
         <br/>
     </div>
-    <div class="category">
+    <div class="recipe_category">
         <h4 th:text="|Kategoria: ${recipe.category.name.getName()}|">Nazwa kategorii</h4>
         <p th:text="|Liczba polubień: ${recipe.likesNumber}|">Liczba polubień</p>
     </div>
@@ -39,5 +39,6 @@
         <a th:href="@{'/delete/' + ${recipe.id}}">Usuń przepis</a>
     </div>
 </div>
+<div th:replace="fragments::footer"></div>
 </body>
 </html>

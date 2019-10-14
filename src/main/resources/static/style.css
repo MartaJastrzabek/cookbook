@@ -6,6 +6,12 @@
     padding: 30px;
 }
 
+.footer {
+    height: 50px;
+    background-color: #00ccff;
+    text-align: center;
+}
+
 .nav {
     height: 50px;
     background-color: #00ccff;
@@ -18,8 +24,35 @@
     color: black;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    color: lightslategrey;
+}
+
 .content {
     width: 1000px;
+    min-height: 400px;
     padding-top: 30px;
     margin: auto;
+}
+
+.category-img {
+    width: 200px;
+}
+
+.category {
+    width: 250px;
+    border: solid 1px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.categories-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

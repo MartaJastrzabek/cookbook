@@ -11,7 +11,21 @@
 <div th:replace="fragments::header"></div>
 <div th:replace="fragments::menu"></div>
 <div class="content">
-
+    <div class="category_page-category">
+        <img class="category_page-img" th:src="${category.img}" alt="Obraz kategorii">
+        <div class="category_page-text">
+            <h3 th:text="${category.name.getName()}">Nazwa kategorii</h3>
+            <p th:text="${category.description}">Opis kategorii</p>
+        </div>
+    </div>
+    <br/>
+    <div class="recipe-list">
+        <div class="recipe" th:each="recipe : ${recipes}">
+            <a th:href="@{'/recipe/' + ${recipe.id}}" th:text="${recipe.name}">Nazwa przepisu</a>
+        </div>
+    </div>
+    <br/>
+    <br/>
 </div>
 <div th:replace="fragments::footer"></div>
 </body>

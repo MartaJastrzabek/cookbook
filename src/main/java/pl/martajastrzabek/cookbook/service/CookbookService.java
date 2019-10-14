@@ -34,6 +34,10 @@ public class CookbookService {
         return categoryRepository.findAll();
     }
 
+    public Optional<Category> findCategoryById(Long id) {
+        return categoryRepository.findById(id);
+    }
+
     public List<Ingredient> createEmptyIngredientsList() {
         int ingredientsQuantity = 10;
         List<Ingredient> ingredients = new ArrayList<>();
@@ -78,6 +82,10 @@ public class CookbookService {
 
     public Optional<Recipe> findRecipeById(Long id) {
         return recipeRepository.findById(id);
+    }
+
+    public List<Recipe> findRecipesFromCategoryByCategoryId(Long categoryId) {
+        return recipeRepository.findAllByCategoryId(categoryId);
     }
 
     public void updateRecipe(RecipeForm recipeForm) {
