@@ -7,15 +7,13 @@ import java.util.List;
 
 public class RecipeForm {
     private Recipe recipe;
-    private String selectedCategory;
     private long recipeId;
 
     public RecipeForm() {
     }
 
-    public RecipeForm(Recipe recipe, String selectedCategory, long recipeId) {
+    public RecipeForm(Recipe recipe, long recipeId) {
         this.recipe = recipe;
-        this.selectedCategory = selectedCategory;
         this.recipeId = recipeId;
     }
 
@@ -25,14 +23,6 @@ public class RecipeForm {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
-    }
-
-    public String getSelectedCategory() {
-        return selectedCategory;
-    }
-
-    public void setSelectedCategory(String selectedCategory) {
-        this.selectedCategory = selectedCategory;
     }
 
     public long getRecipeId() {

@@ -51,12 +51,11 @@
             </div>
         </div>
         <div class="form-group row">
-            <label th:for="|selectedCategory|" class="col-sm-2 col-form-label">Kategoria:</label>
+            <label th:for="|recipe.category|" class="col-sm-2 col-form-label">Kategoria:</label>
             <div class="col-sm-10">
-                <select th:field="*{selectedCategory}" class="form-control">
-                    <option th:if="${!actionEdit}" value="" th:selected="selected">wybierz...</option>
-                    <option th:each="cat : ${categories}" th:value="${cat.toString()}" th:text="${cat.name}"
-                            th:selected="*{selectedCategory}"></option>
+                <select th:field="*{recipe.category}" class="form-control">
+                    <option value="" th:selected="selected">wybierz...</option>
+                    <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name.getName()}"></option>
                 </select>
             </div>
         </div>

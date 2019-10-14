@@ -33,7 +33,7 @@
         <p th:text="${recipe.preparation}"></p>
     </div>
     <div class="edit">
-        <a th:href="@{'/edit/' + ${recipe.id}}">Edytuj przepis</a>
+        <a th:href="@{'/update/' + ${recipe.id}}">Edytuj przepis</a>
     </div>
     <div class="delete">
         <a th:href="@{'/delete/' + ${recipe.id}}">Usuń przepis</a>

@@ -53,18 +53,7 @@ public class CookbookService {
 
 
     public Recipe prepareRecipeFromForm(RecipeForm recipeForm) {
-        CategoryName catName = CategoryName.valueOf(recipeForm.getSelectedCategory());
         Recipe recipe = recipeForm.getRecipe();
-        Optional<Category> categoryOptional = categoryRepository.findByName(catName);
-
-        if (categoryOptional.isPresent()) {
-            recipe.setCategory(categoryOptional.get());
-        }
-
-        if (recipeForm.getRecipeId() != 0) {
-            // edit action
-            recipe.setId(recipeForm.getRecipeId());
-        }
 
         List<Ingredient> ingredientsList = recipe.getIngredients();
         ListIterator<Ingredient> it = ingredientsList.listIterator();
@@ -76,7 +65,6 @@ public class CookbookService {
                 it.remove();
                 continue;
             }
-
             // this is valid ingredient, assign recipe
             item.setRecipe(recipe);
         }

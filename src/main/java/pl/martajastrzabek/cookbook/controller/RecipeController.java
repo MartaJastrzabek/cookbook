@@ -24,10 +24,10 @@ public class RecipeController {
     public String addRecipeForm(Model model) {
         Recipe recipe = new Recipe();
         recipe.setIngredients(service.createEmptyIngredientsList());
-        RecipeForm recipeForm = new RecipeForm(recipe, "", 0);
+        RecipeForm recipeForm = new RecipeForm(recipe, 0);
 
         model.addAttribute("unitTypes", service.ingredientsUnitTypesNamesArray());
-        model.addAttribute("categories", service.categoriesNamesArray());
+        model.addAttribute("categories", service.findAllCategories());
         model.addAttribute("recipeForm", recipeForm);
         model.addAttribute("actionEdit", false);
         return "addedit";
@@ -51,16 +51,16 @@ public class RecipeController {
         return "error";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/update/{id}")
     String editRecipeForm(@PathVariable Long id, Model model) {
         Optional<Recipe> opRecipe = service.findRecipeById(id);
         if (opRecipe.isPresent()) {
             Recipe recipe = opRecipe.get();
 
-            RecipeForm recipeForm = new RecipeForm(recipe, "", id);
+            RecipeForm recipeForm = new RecipeForm(recipe, id);
 
             model.addAttribute("unitTypes", service.ingredientsUnitTypesNamesArray());
-            model.addAttribute("categories", service.categoriesNamesArray());
+            model.addAttribute("categories", service.findAllCategories());
             model.addAttribute("recipeForm", recipeForm);
             model.addAttribute("actionEdit", true);
 
